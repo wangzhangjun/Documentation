@@ -14,7 +14,7 @@ SynestiaOS 启用了ARM处理器的[LAPE](https://elinux.org/images/6/6a/Elce11_
 
 `SynestiaOS` 目前工作在32位模式，**页表**的大小是4KB`(#define PAGE_SIZE 4 * KB)`，**页表项**是64位，一共有三级页表，**[31:30]**表示一级页表，**[29:21]**表示二级页表，**[20:12]**表示三级页表；表示内存的方式为：`4(2^2) × 512(2^9) × 512(2^9) × 4KB = 4GB`。 
 
-32位可以寻址的内存范围是4GB(2^32)，所以4GB的内存一共需要4GB / 4KB个物理页面：
+32位可以寻址的内存范围是4GB(2^32)，所以4GB的内存一共需要4GB / 4KB个物理页面,也就是1MB个物理页，即1<<20：
 
 ```c
 SynestiaOS/SourceCode/Kernel/Arch/arm/vmm/src/page.c
